@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddpjyilec6j6o"]
+
+[ext_resource type="Script" path="res://note_paths/note.gd" id="1_081qu"]
+[ext_resource type="Resource" uid="uid://bvwlqu044t2mc" path="res://note_paths/approach_rate.tres" id="2_gfbnq"]
+
+[sub_resource type="Gradient" id="Gradient_ndo40"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mcbbk"]
+gradient = SubResource("Gradient_ndo40")
+width = 50
+height = 30
+
+[sub_resource type="Animation" id="Animation_xs02c"]
+resource_name = "move_note"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1010, 0), Vector2(-1010, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ltyl"]
+_data = {
+"move_note": SubResource("Animation_xs02c")
+}
+
+[node name="Note" type="Node2D"]
+script = ExtResource("1_081qu")
+approach_rate = ExtResource("2_gfbnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1010, 0)
+texture = SubResource("GradientTexture2D_mcbbk")
+centered = false
+offset = Vector2(0, 10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ltyl")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
