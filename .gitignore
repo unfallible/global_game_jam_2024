@@ -1,2 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Global Game Jame 2024 ignores
+assets/*
+build/*
