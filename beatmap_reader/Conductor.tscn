@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccy38gn3a1wrw"]
+
+[ext_resource type="Script" path="res://beatmap_reader/Conductor.gd" id="1_w07ep"]
+[ext_resource type="Script" path="res://audio_stream_manager.gd" id="2_jo74f"]
+
+[node name="Conductor" type="AudioStreamPlayer"]
+script = ExtResource("1_w07ep")
+beatmap_file = null
+hardware_clock = null
+global_latency_sec = null
+
+[node name="AudioStreamManager" type="Node" parent="."]
+script = ExtResource("2_jo74f")
+
+[node name="StartTimer" type="Timer" parent="."]
