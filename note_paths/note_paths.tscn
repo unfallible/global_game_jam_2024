@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://buwyyvrona12n"]
+[gd_scene load_steps=10 format=3 uid="uid://buwyyvrona12n"]
 
 [ext_resource type="Script" path="res://note_paths/note_paths.gd" id="1_aqrby"]
 [ext_resource type="Texture2D" uid="uid://c276650ghdtvr" path="res://note_paths/note_rail_gradient.tres" id="2_ufgmw"]
 [ext_resource type="PackedScene" uid="uid://doc785vc1b6rl" path="res://note_paths/note_indicator.tscn" id="2_vb2ed"]
+[ext_resource type="PackedScene" uid="uid://ccy38gn3a1wrw" path="res://beatmap_reader/Conductor.tscn" id="4_glfkq"]
+[ext_resource type="Resource" uid="uid://b6tx7ddof3e8g" path="res://assets/testmapresource.tres" id="5_vbr4b"]
 
 [sub_resource type="Gradient" id="Gradient_n7she"]
 colors = PackedColorArray(0.5451, 0.5934, 0.69, 1, 0.6958, 0.71, 0.6532, 1)
@@ -115,3 +117,8 @@ position = Vector2(0, 250)
 texture = ExtResource("2_ufgmw")
 centered = false
 offset = Vector2(0, -2)
+
+[node name="Conductor" parent="." instance=ExtResource("4_glfkq")]
+map_data = ExtResource("5_vbr4b")
+
+[connection signal="hit_object" from="Conductor" to="." method="_on_conductor_hit_object"]

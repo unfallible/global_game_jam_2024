@@ -15,3 +15,7 @@ func spawn_note(note_index: int):
         3: $Goal/NoteSpawn03.add_child(note_instance)
         4: $Goal/NoteSpawn04.add_child(note_instance)
         5: $Goal/NoteSpawn05.add_child(note_instance)
+
+
+func _on_conductor_hit_object(object: HitObject, warning_time):
+    spawn_note(floor(object.x * 6 / 512))

@@ -13,13 +13,13 @@ var effects: int  # Bit flags that give the timing point extra effects. See the 
 
 
 func _init(timing_point_str: String):
-	var timing_point_data: PackedStringArray = timing_point_str.split(",")
-	self.time = int(timing_point_data[0])
-	self.beatLength = float(timing_point_data[1])
-	self.meter = int(timing_point_data[2])
-	self.sampleSet = int(timing_point_data[3])
-	self.sampleIndex = int(timing_point_data[4])
-	self.volume = int(timing_point_data[5])
-	self.uninherited = int(timing_point_data[6])
-	self.effects = int(timing_point_data[7])
+    var timing_point_data: PackedStringArray = timing_point_str.split(",")
+    self.time = int(timing_point_data[0])
+    self.beatLength = float(timing_point_data[1])
+    self.meter = int(timing_point_data[2])
+    self.sampleSet = int(timing_point_data[3])
+    self.sampleIndex = int(timing_point_data[4])
+    self.volume = int(timing_point_data[5])
+    self.uninherited = int(timing_point_data[6])
+    self.effects = int(timing_point_data[7])
 

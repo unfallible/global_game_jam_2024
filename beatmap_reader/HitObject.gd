@@ -11,9 +11,9 @@ var objectParams: Array  # (Comma-separated list): Extra parameters specific to 
 var hitSample: Array  # (Colon-separated list): Information about which samples are played when the object is hit. It is closely related to hitSound; see the hitsounds section. If it is not written, it defaults to 0:0:0:0:.
 
 func _init(hit_object_string: String):
-	var hit_obj_data = hit_object_string.split(",", true, 6)
-	self.x = int(hit_obj_data[0])
-	self.y = int(hit_obj_data[1])
-	self.time = int(hit_obj_data[2])
-	self.type = int(hit_obj_data[3])
-	self.hitSound = int(hit_obj_data[4])
+    var hit_obj_data = hit_object_string.split(",", true, 6)
+    self.x = int(hit_obj_data[0])
+    self.y = int(hit_obj_data[1])
+    self.time = int(hit_obj_data[2])
+    self.type = int(hit_obj_data[3])
+    self.hitSound = int(hit_obj_data[4])

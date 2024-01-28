@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccy38gn3a1wrw"]
+
+[ext_resource type="Script" path="res://beatmap_reader/Conductor.gd" id="1_w07ep"]
+[ext_resource type="Script" path="res://audio_stream_manager.gd" id="2_jo74f"]
+[ext_resource type="Script" path="res://GDVars/variables/FloatVariables/MutableFloat.gd" id="3_y2ku8"]
+
+[sub_resource type="Resource" id="Resource_yv62a"]
+script = ExtResource("3_y2ku8")
+_value = 3.0
+
+[node name="Conductor" type="AudioStreamPlayer" node_paths=PackedStringArray("stream_manager")]
+script = ExtResource("1_w07ep")
+stream_manager = NodePath("AudioStreamManager")
+
+[node name="AudioStreamManager" type="Node" parent="."]
+script = ExtResource("2_jo74f")
+insanity_level = SubResource("Resource_yv62a")
+
+[node name="StartTimer" type="Timer" parent="."]

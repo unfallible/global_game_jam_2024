@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=6 format=3 uid="uid://b6tx7ddof3e8g"]
+
+[ext_resource type="Script" path="res://MapData.gd" id="1_w41v7"]
+[ext_resource type="AudioStream" uid="uid://dfdl13sakub55" path="res://assets/SteamboatSilly_Basic.wav" id="2_4ga2r"]
+[ext_resource type="AudioStream" uid="uid://bqc0s3vhxfoht" path="res://assets/SteamboatSilly_1.wav" id="3_a1j5x"]
+[ext_resource type="AudioStream" uid="uid://17uidkeskxqc" path="res://assets/SteamboatSilly_2.wav" id="4_p2k6x"]
+[ext_resource type="AudioStream" uid="uid://b5ae44n6k0d0h" path="res://assets/SteamboatSilly_3.wav" id="5_1nc1h"]
+
+[resource]
+script = ExtResource("1_w41v7")
+beatmap_filename = "res://assets/unknown - unknown (NeedsCoffee) [Easy].osu"
+tracks = Array[AudioStream]([ExtResource("2_4ga2r"), ExtResource("3_a1j5x"), ExtResource("4_p2k6x"), ExtResource("5_1nc1h")])

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="IntVar" load_steps=2 format=3 uid="uid://ccx582mc36fx4"]
+
+[ext_resource type="Script" path="res://GDVars/variables/IntVariables/IntVar.gd" id="1_mlc5i"]
+
+[resource]
+script = ExtResource("1_mlc5i")
