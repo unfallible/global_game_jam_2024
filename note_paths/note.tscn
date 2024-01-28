@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ddpjyilec6j6o"]
 
 [ext_resource type="Script" path="res://note_paths/note.gd" id="1_081qu"]
-[ext_resource type="Resource" uid="uid://bvwlqu044t2mc" path="res://note_paths/approach_rate.tres" id="2_gfbnq"]
+[ext_resource type="Resource" uid="uid://ccx582mc36fx4" path="res://assets/approach_rate.tres" id="2_fktsd"]
 
 [sub_resource type="Gradient" id="Gradient_ndo40"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -34,10 +34,10 @@ _data = {
 
 [node name="Note" type="Node2D"]
 script = ExtResource("1_081qu")
-approach_rate = ExtResource("2_gfbnq")
+approach_rate = ExtResource("2_fktsd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1010, 0)
+position = Vector2(548, 0)
 texture = SubResource("GradientTexture2D_mcbbk")
 centered = false
 offset = Vector2(0, 10)

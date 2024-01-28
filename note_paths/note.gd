@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var approach_rate: MutableFloat
+@export var approach_rate: IntVar
 
 
 func _ready():
