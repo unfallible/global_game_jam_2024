@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://doc785vc1b6rl"]
+
+[ext_resource type="Script" path="res://note_paths/note_indicator.gd" id="1_x7hr3"]
+
+[sub_resource type="Gradient" id="Gradient_to8ff"]
+offsets = PackedFloat32Array(0.411255, 0.415584, 0.666667, 0.670996)
+colors = PackedColorArray(0.486275, 0.486275, 0.486275, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_to3y2"]
+gradient = SubResource("Gradient_to8ff")
+width = 21
+height = 50
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="NoteIndicator" type="Node2D"]
+script = ExtResource("1_x7hr3")
+
+[node name="Pressed" type="Sprite2D" parent="."]
+modulate = Color(0.403922, 0.721569, 0.462745, 1)
+z_index = 2
+texture = SubResource("GradientTexture2D_to3y2")
+offset = Vector2(0, 25)

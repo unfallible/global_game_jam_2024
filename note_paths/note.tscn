@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddpjyilec6j6o"]
+
+[ext_resource type="Script" path="res://note_paths/note.gd" id="1_081qu"]
+[ext_resource type="Resource" uid="uid://djttw07ings1k" path="res://assets/approach_rate.tres" id="2_fktsd"]
+
+[sub_resource type="Gradient" id="Gradient_c3575"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x0mot"]
+gradient = SubResource("Gradient_c3575")
+width = 50
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_ndo40"]
+colors = PackedColorArray(0.223529, 0.901961, 0.403922, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_arb8x"]
+gradient = SubResource("Gradient_ndo40")
+width = 50
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_7kg4i"]
+colors = PackedColorArray(0.9, 0.225, 0.225, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ryfmq"]
+gradient = SubResource("Gradient_7kg4i")
+width = 50
+height = 30
+
+[sub_resource type="Animation" id="Animation_xs02c"]
+resource_name = "move_note"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.95, 1.05),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_hit_window"
+}, {
+"args": [],
+"method": &"end_hit_window"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoteBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(548, 0), Vector2(-548, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ltyl"]
+_data = {
+"move_note": SubResource("Animation_xs02c")
+}
+
+[node name="Note" type="Node2D"]
+script = ExtResource("1_081qu")
+approach_rate = ExtResource("2_fktsd")
+
+[node name="NoteBar" type="Node2D" parent="."]
+position = Vector2(548, 0)
+
+[node name="Regular" type="Sprite2D" parent="NoteBar"]
+texture = SubResource("GradientTexture2D_x0mot")
+centered = false
+offset = Vector2(0, 10)
+
+[node name="Success" type="Sprite2D" parent="NoteBar"]
+visible = false
+texture = SubResource("GradientTexture2D_arb8x")
+centered = false
+offset = Vector2(0, 10)
+
+[node name="Failure" type="Sprite2D" parent="NoteBar"]
+visible = false
+texture = SubResource("GradientTexture2D_ryfmq")
+centered = false
+offset = Vector2(0, 10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ltyl")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

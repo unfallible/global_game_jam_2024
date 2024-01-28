@@ -23,6 +23,6 @@ var WidescreenStoryboard: int  #0 or 1 	Whether or not the storyboard allows wid
 var SamplesMatchPlaybackRate: int  #0 or 1 	Whether or not sound samples will change rate when playing with speed-changing mods 	0
 
 func _init(general_beatmap_data_string: String):
-	var general_data = general_beatmap_data_string.split(",")
-	self.AudioFilename = general_data[0]
-	self.AudioLeadIn = general_data[1]
+    var general_data = general_beatmap_data_string.split(",")
+    self.AudioFilename = general_data[0]
+    self.AudioLeadIn = general_data[1]

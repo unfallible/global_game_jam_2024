@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmo0m47dc5mwb"]
+
+[ext_resource type="AudioStream" uid="uid://orti8a2kgwrm" path="res://assets/SteamboatSilly/SteamboatSilly_1.wav" id="1_w25dy"]
+[ext_resource type="Script" path="res://audio_stream_manager.gd" id="1_w74xi"]
+[ext_resource type="AudioStream" uid="uid://rsf3j1tul8ap" path="res://38484 Nico Nico Chorus - Leia/Leia (Chorus).mp3" id="3_fdt71"]
+[ext_resource type="AudioStream" uid="uid://co1nvus4fyphf" path="res://assets/SteamboatSilly/SteamboatSilly_2.wav" id="3_k7yth"]
+[ext_resource type="AudioStream" uid="uid://q5o6injusr7v" path="res://assets/SteamboatSilly/SteamboatSilly_3.wav" id="4_08ery"]
+[ext_resource type="Resource" uid="uid://dhmdbh83d5jxr" path="res://insanity_level_var.tres" id="5_6h3jr"]
+
+[sub_resource type="GDScript" id="GDScript_3p604"]
+script/source = "extends Node
+
+@export_range(0,3) var insanity_control: float:
+	get:
+		if insanity_var is FloatVar:
+			return insanity_var.get_value()
+		else:
+			return 0
+	set(value):
+		if insanity_var is FloatVar:
+			insanity_var.set_value(value)
+			print(\"set value\")
+
+@export var insanity_var: MutableFloat:
+	get:
+		return insanity_var
+	set(value):
+		insanity_var = value
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="AudioStreamManager" type="Node"]
+script = ExtResource("1_w74xi")
+songs = Array[AudioStream]([ExtResource("3_fdt71"), ExtResource("1_w25dy"), ExtResource("3_k7yth"), ExtResource("4_08ery")])
+insanity_level = ExtResource("5_6h3jr")
+
+[node name="Node" type="Node" parent="."]
+script = SubResource("GDScript_3p604")
+insanity_var = ExtResource("5_6h3jr")

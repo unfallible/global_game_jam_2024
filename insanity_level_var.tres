@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MutableFloat" load_steps=2 format=3 uid="uid://dhmdbh83d5jxr"]
+
+[ext_resource type="Script" path="res://GDVars/variables/FloatVariables/MutableFloat.gd" id="1_qlo6r"]
+
+[resource]
+script = ExtResource("1_qlo6r")
+_value = 0.0

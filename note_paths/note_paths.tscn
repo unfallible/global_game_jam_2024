@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://buwyyvrona12n"]
+
+[ext_resource type="Script" path="res://note_paths/note_paths.gd" id="1_aqrby"]
+[ext_resource type="Texture2D" uid="uid://c276650ghdtvr" path="res://note_paths/note_rail_gradient.tres" id="2_ufgmw"]
+[ext_resource type="PackedScene" uid="uid://doc785vc1b6rl" path="res://note_paths/note_indicator.tscn" id="2_vb2ed"]
+[ext_resource type="PackedScene" uid="uid://ccy38gn3a1wrw" path="res://beatmap_reader/Conductor.tscn" id="4_glfkq"]
+[ext_resource type="Resource" uid="uid://b6tx7ddof3e8g" path="res://assets/testmapresource.tres" id="5_vbr4b"]
+
+[sub_resource type="Gradient" id="Gradient_n7she"]
+colors = PackedColorArray(0.5451, 0.5934, 0.69, 1, 0.6958, 0.71, 0.6532, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yofcy"]
+gradient = SubResource("Gradient_n7she")
+width = 4
+height = 300
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_xg32x"]
+colors = PackedColorArray(0, 0.0705882, 0.137255, 1, 0, 0.300333, 0.34, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_li0hr"]
+gradient = SubResource("Gradient_xg32x")
+width = 1152
+height = 300
+fill_from = Vector2(0, 0.186544)
+fill_to = Vector2(1, 0.363914)
+
+[node name="NotePaths" type="Node2D"]
+position = Vector2(426, 698)
+rotation = -1.5708
+script = ExtResource("1_aqrby")
+
+[node name="Goal" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(150, 0)
+
+[node name="NoteSpawn00" type="Node2D" parent="Goal"]
+
+[node name="NoteSpawn01" type="Node2D" parent="Goal"]
+position = Vector2(0, 50)
+
+[node name="NoteSpawn02" type="Node2D" parent="Goal"]
+position = Vector2(0, 100)
+
+[node name="NoteSpawn03" type="Node2D" parent="Goal"]
+position = Vector2(0, 150)
+
+[node name="NoteSpawn04" type="Node2D" parent="Goal"]
+position = Vector2(0, 200)
+
+[node name="NoteSpawn05" type="Node2D" parent="Goal"]
+position = Vector2(0, 250)
+
+[node name="GoalLine" type="Sprite2D" parent="Goal"]
+z_index = 1
+texture = SubResource("GradientTexture2D_yofcy")
+centered = false
+offset = Vector2(-2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Goal"]
+
+[node name="NoteIndicator00" parent="Goal" instance=ExtResource("2_vb2ed")]
+
+[node name="NoteIndicator01" parent="Goal" instance=ExtResource("2_vb2ed")]
+position = Vector2(0, 50)
+note_index = 1
+
+[node name="NoteIndicator02" parent="Goal" instance=ExtResource("2_vb2ed")]
+position = Vector2(0, 100)
+note_index = 2
+
+[node name="NoteIndicator03" parent="Goal" instance=ExtResource("2_vb2ed")]
+position = Vector2(0, 150)
+note_index = 3
+
+[node name="NoteIndicator04" parent="Goal" instance=ExtResource("2_vb2ed")]
+position = Vector2(0, 200)
+note_index = 4
+
+[node name="NoteIndicator05" parent="Goal" instance=ExtResource("2_vb2ed")]
+position = Vector2(0, 250)
+note_index = 5
+
+[node name="Backdrop" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Backdrop"]
+z_index = -1
+texture = SubResource("GradientTexture2D_li0hr")
+centered = false
+
+[node name="NoteRail01" type="Sprite2D" parent="Backdrop"]
+position = Vector2(0, 50)
+texture = ExtResource("2_ufgmw")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="NoteRail02" type="Sprite2D" parent="Backdrop"]
+position = Vector2(0, 100)
+texture = ExtResource("2_ufgmw")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="NoteRail03" type="Sprite2D" parent="Backdrop"]
+position = Vector2(0, 150)
+texture = ExtResource("2_ufgmw")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="NoteRail04" type="Sprite2D" parent="Backdrop"]
+position = Vector2(0, 200)
+texture = ExtResource("2_ufgmw")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="NoteRail05" type="Sprite2D" parent="Backdrop"]
+position = Vector2(0, 250)
+texture = ExtResource("2_ufgmw")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="Conductor" parent="." instance=ExtResource("4_glfkq")]
+map_data = ExtResource("5_vbr4b")
+
+[connection signal="hit_object" from="Conductor" to="." method="_on_conductor_hit_object"]
